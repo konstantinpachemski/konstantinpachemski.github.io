@@ -1,128 +1,46 @@
-# Next.js GitHub Pages
+# Getting Started with Create React App
 
-Deploy Next.js to GitHub Pages with GitHub Actions. [View the deployed app](https://gregrickaby.github.io/nextjs-github-pages/) 🚀
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Now with Next.js App Router support! If you need Pages Router support [click here](https://github.com/gregrickaby/nextjs-github-pages/releases/tag/pages_dir).
+## Available Scripts
 
-> ⚠️ Heads up! GitHub Pages _does not_ support serverless or edge functions. This means dynamic functionality will be disabled. See all the [unsupported features](https://nextjs.org/docs/app/building-your-application/deploying/static-exports).
+In the project directory, you can run:
 
----
+### `npm start`
 
-## Configure Next.js
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Next.js Config
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-First, you need to configure Next.js to [deploy static exports](https://nextjs.org/docs/app/building-your-application/deploying/static-exports). This is required for GitHub Pages to work.
+### `npm test`
 
-1. Open the `next.config.mjs` file
-2. Add the following:
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-```js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  /**
-   * Enable static exports for the App Router.
-   *
-   * @see https://nextjs.org/docs/app/building-your-application/deploying/static-exports
-   */
-  output: "export",
+### `npm run build`
 
-  /**
-   * Set base path. This is the slug of your GitHub repository.
-   *
-   * @see https://nextjs.org/docs/app/api-reference/next-config-js/basePath
-   */
-  basePath: "/nextjs-github-pages",
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-  /**
-   * Disable server-based image optimization. Next.js does not support
-   * dynamic features with static exports.
-   *
-   * @see https://nextjs.org/docs/app/api-reference/components/image#unoptimized
-   */
-  images: {
-    unoptimized: true,
-  },
-};
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-export default nextConfig;
-```
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-3. Save the `next.config.mjs`
+### `npm run eject`
 
-4. Finally, place a `.nojekyll` file in the `/public` directory to disable GitHub Pages from trying to create a [Jekyll](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/) website.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-```treeview
-.
-├── app/
-├── public/
-│   └── .nojekyll
-├── next.config.js
-```
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Perfect! This is all you need to configure Next.js to deploy on GitHub Pages.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-### Add base path to `page.tsx`
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-Next, you will need to add the base path to images in `page.tsx` file. This is required for the images to appear on GitHub Pages.
+## Learn More
 
-1. Open `app/page.tsx`
-2. Find the `Image` components
-3. Add `/nextjs-github-pages/` (or the slug of your GitHub repository) to the `src` prop:
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-```tsx[class="line-numbers"]
-   <Image
-     src="/nextjs-github-pages/vercel.svg"
-     alt="Vercel Logo"
-     className={styles.vercelLogo}
-     width={100}
-     height={24}
-     priority
-   />
-```
-
-4. Save the `page.tsx` file
-
-Learn more by reading the official documentation [for basePath and images](https://nextjs.org/docs/app/api-reference/next-config-js/basePath#images).
-
----
-
-## Configure GitHub Repository
-
-Next you need to configure Github for automated deployments via GitHub Actions.
-
-### Enable GitHub Pages
-
-The following settings use the [Github Action Deploy Pages](https://github.com/actions/deploy-pages) to deploy. I prefer this workflow because you don't need to generate SSH keys or use a personal access token.
-
-1. Go to your repository's **Settings** tab
-2. Click "Pages" in the sidebar
-3. Under "Build and Deployment", select "GitHub Actions" as the source:
-
-![screenshot of github pages settings](https://github.com/gregrickaby/nextjs-github-pages/assets/200280/a5f757c3-f515-4ca2-aadf-d2979c2c3bf5)
-
-### Setup GitHub Action
-
-This is where the magic happens! This [workflow file](https://github.com/gregrickaby/nextjs-github-pages/blob/main/.github/workflows/deploy.yml) will automatically build and deploy the app when you push to the `main` branch.
-
-1. Create `.github/workflows/deploy.yml` file
-2. Paste the contents of <https://github.com/gregrickaby/nextjs-github-pages/blob/main/.github/workflows/deploy.yml>
-3. Save the `deploy.yml` file
-
-### Push to GitHub
-
-Now that everything is configured, you can commit your code and push to GitHub. This will trigger the GitHub Action workflow and deploy your app to GitHub Pages.
-
-```bash
-git add . && git commit -m "Initial commit" && git push
-```
-
-You should see your site deployed to GitHub Pages in a few minutes. 🚀
-
----
-
-## Wrap up
-
-Thanks for reading and I hope this helps. If you noticed someting wrong, please [file an issue](https://github.com/gregrickaby/nextjs-github-pages/issues). Good luck! 🍻
-
----
+To learn React, check out the [React documentation](https://reactjs.org/).
