@@ -1,10 +1,10 @@
 import "./App.css";
 import Composition from "./components/moving-letters/composition/composition";
-import AnimationsController from "./AnimationsController";
+import Director from "./Director";
 
 function App() {
 
-	const { animateHeaderTitle } = AnimationsController();
+	const { onClickHeaderTitle, onClickCompositionBackButton, onClickMenuButton, onClickCompositionWrapper } = Director();
 	
 	return (
 		<div className="App">
@@ -13,6 +13,7 @@ function App() {
 				<button
 					className="js-menu menu button-clear menu-white menu-movingLetters"
 					aria-label="Site navigation"
+					onClick={onClickMenuButton}
 				>
 					<span className="menu-icon-line-1 menu-icon-line"></span>
 					<span className="menu-icon-line-2 menu-icon-line"></span>
@@ -60,8 +61,8 @@ function App() {
 					</div>
 				</div>
 
-				<h1 className="header-title" onClick={animateHeaderTitle}>
-					Moving Letters
+				<h1 className="header-title" onClick={onClickHeaderTitle}>
+					Konstantin Pachemski
 				</h1>
 				<div className="header-links">
 					<a href="https://twitter.com/tobiasahlin" className="header-link">
@@ -80,7 +81,7 @@ function App() {
 			</div>
 
 			<div className="composition-source">
-				<a href="/moving-letters/" className="composition-back-button">
+				<a href="/moving-letters/" className="composition-back-button" onClick={onClickCompositionBackButton}>
 					<svg
 						className="composition-back-image"
 						xmlns="http://www.w3.org/2000/svg"
@@ -124,10 +125,10 @@ function App() {
 			</div>
 
 			<div className="compositions" style={{ flexFlow: "row wrap" }}>
-				<Composition animationNumber={1} />
-				<Composition animationNumber={2} />
-				<Composition animationNumber={3} />
-				<Composition animationNumber={4} />
+				<Composition animationNumber={1} onClickCompositionWrapper={onClickCompositionWrapper} />
+				<Composition animationNumber={2} onClickCompositionWrapper={onClickCompositionWrapper} />
+				<Composition animationNumber={3} onClickCompositionWrapper={onClickCompositionWrapper} />
+				<Composition animationNumber={4} onClickCompositionWrapper={onClickCompositionWrapper} />
 			</div>
 		</div>
 	);

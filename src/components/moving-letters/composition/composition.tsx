@@ -5,15 +5,14 @@ import {
 	loadCompositionHTML,
 	loadBackground,
 } from "./componentData";
-import AnimationsController from "../../../AnimationsController";
 
 interface CompositionProps {
 	animationNumber: number;
+	onClickCompositionWrapper: (e) => void;
 }
 
 const Composition = (props: CompositionProps) => {
-	const { animationNumber } = props;
-	const { handleCompositionWrapperClick } = AnimationsController();
+	const { animationNumber, onClickCompositionWrapper } = props;
 
 	useEffect(() => loadAnimation(animationNumber), [animationNumber]);
 
@@ -32,7 +31,11 @@ const Composition = (props: CompositionProps) => {
 				/>
 				Source
 			</span>
-			<div className="composition-wrapper" onClick={handleCompositionWrapperClick}>
+			<div
+				className="composition-wrapper"
+				// style={{ background: loadBackground(animationNumber) }}
+				onClick={onClickCompositionWrapper}
+			>
 				{loadCompositionHTML(animationNumber)}
 			</div>
 		</div>
