@@ -92,6 +92,7 @@ interface MovingLetters {
 	overlay?: Overlay;
 	isShowingSource?: any;
 	compositions?: any;
+	prepareCompositions?: any;
 	showComposition?: (comp: any, e: any, options?: any) => void;
 	showSourceForComposition?: (c: any, e: any, options?: any) => void;
 	spawnPositionForEventAndComp?: (e: any, c: any) => any;
@@ -412,128 +413,31 @@ const Director = () => {
 		!app.menu.visible ? app.menu.reveal(e) : app.menu.hide(e);
 
 	const ml: MovingLetters = {};
-	ml.timelines = {};
-	ml.timelines["ml1"] = anime
-		.timeline({ loop: true })
-		.add({
-			targets: ".ml1 .letter",
-			scale: [0.3, 1],
-			opacity: [0, 1],
-			translateZ: 0,
-			easing: "easeOutExpo",
-			duration: 600,
-			delay: (el, i) => 70 * (i + 1),
-		})
-		.add({
-			targets: ".ml1 .line",
-			scaleX: [0, 1],
-			opacity: [0.5, 1],
-			easing: "easeOutExpo",
-			duration: 700,
-			offset: "-=875",
-			delay: (el, i, l) => 80 * (l - i),
-		})
-		.add({
-			targets: ".ml1",
-			opacity: 0,
-			duration: 1000,
-			easing: "easeOutExpo",
-			delay: 1000,
-		});
-	ml.timelines["ml2"] = anime
-		.timeline({ loop: true })
-		.add({
-			targets: ".ml2 .letter",
-			scale: [4, 1],
-			opacity: [0, 1],
-			translateZ: 0,
-			easing: "easeOutExpo",
-			duration: 950,
-			delay: (el, i) => 70 * i,
-		})
-		.add({
-			targets: ".ml2",
-			opacity: 0,
-			duration: 1000,
-			easing: "easeOutExpo",
-			delay: 1000,
-		});
 
-	ml.timelines["ml3"] = anime
-		.timeline({ loop: true })
-		.add({
-			targets: ".ml3 .letter",
-			opacity: [0, 1],
-			easing: "easeInOutQuad",
-			duration: 2250,
-			delay: (el, i) => 150 * (i + 1),
-		})
-		.add({
-			targets: ".ml3",
-			opacity: 0,
-			duration: 1000,
-			easing: "easeOutExpo",
-			delay: 1000,
-		});
-
-	const ml4 = {
-		opacityIn: [0, 1],
-		scaleIn: [0.2, 1],
-		scaleOut: 3,
-		durationIn: 800,
-		durationOut: 600,
-		delay: 500,
+	ml.prepareCompositions = {};
+	ml.prepareCompositions["ml1"] = function () {
+		var textWrapper = document.querySelector(".ml1 .letters");
+		textWrapper.innerHTML = textWrapper.textContent.replace(
+			/\S/g,
+			"<span class='letter'>$&</span>"
+		);
 	};
-	ml.timelines["ml4"] = anime
-		.timeline({ loop: true })
-		.add({
-			targets: ".ml4 .letters-1",
-			opacity: ml4.opacityIn,
-			scale: ml4.scaleIn,
-			duration: ml4.durationIn,
-		})
-		.add({
-			targets: ".ml4 .letters-1",
-			opacity: 0,
-			scale: ml4.scaleOut,
-			duration: ml4.durationOut,
-			easing: "easeInExpo",
-			delay: ml4.delay,
-		})
-		.add({
-			targets: ".ml4 .letters-2",
-			opacity: ml4.opacityIn,
-			scale: ml4.scaleIn,
-			duration: ml4.durationIn,
-		})
-		.add({
-			targets: ".ml4 .letters-2",
-			opacity: 0,
-			scale: ml4.scaleOut,
-			duration: ml4.durationOut,
-			easing: "easeInExpo",
-			delay: ml4.delay,
-		})
-		.add({
-			targets: ".ml4 .letters-3",
-			opacity: ml4.opacityIn,
-			scale: ml4.scaleIn,
-			duration: ml4.durationIn,
-		})
-		.add({
-			targets: ".ml4 .letters-3",
-			opacity: 0,
-			scale: ml4.scaleOut,
-			duration: ml4.durationOut,
-			easing: "easeInExpo",
-			delay: ml4.delay,
-		})
-		.add({
-			targets: ".ml4",
-			opacity: 0,
-			duration: 500,
-			delay: 500,
-		});
+	ml.prepareCompositions["ml2"] = function () {
+		var textWrapper = document.querySelector(".ml2");
+		textWrapper.innerHTML = textWrapper.textContent.replace(
+			/\S/g,
+			"<span class='letter'>$&</span>"
+		);
+	};
+	ml.prepareCompositions["ml3"] = function () {
+		var textWrapper = document.querySelector(".ml3");
+		textWrapper.innerHTML = textWrapper.textContent.replace(
+			/\S/g,
+			"<span class='letter'>$&</span>"
+		);
+	};
+
+	ml.timelines = [];
 
 	ml.overlay = {};
 	ml.isShowingSource = false;
@@ -583,11 +487,13 @@ const Director = () => {
 
 	const pauseComposition = (comp) => {
 		let compID = comp.querySelector("h1").className;
-		console.log(ml.timelines[compID]);
+		// console.log("compID", compID, ml.timelines[compID]);
+		console.log(compID, ml.timelines[compID]);
 		ml.timelines[compID].pause();
 	};
 
 	const pauseAllCompositions = () => {
+		// console.log("Pausing all compositiong ml.compositions", ml.compositions);
 		ml.compositions.forEach(function (element, i) {
 			pauseComposition(element);
 		});
@@ -596,11 +502,10 @@ const Director = () => {
 	// Displaying compositions
 	const showComposition = (comp, e) => {
 		if (comp.classList.contains("composition-active")) return;
-		console.log(comp, e);
 		showSourceForComposition(comp, e);
 	};
 
-	const showSourceForComposition = (c, e) => {
+	const showSourceForComposition = (c: HTMLElement, e: Event) => {
 		ml.isShowingSource = true;
 
 		document.querySelector("html").classList.add("is-showing-source");
@@ -613,10 +518,9 @@ const Director = () => {
 		pauseComposition(c);
 		app.menu.hideMenuIcon();
 		let spawnPosition = spawnPositionForEventAndComp(e, c);
-		console.log("ccc", c.style.backgroundColor);
 		app.overlay.show({
 			position: spawnPosition,
-			fill: c.style.backgroundColor,
+			fill: c.dataset.color,
 		});
 
 		// Prepare to animate in overlay elements
@@ -675,7 +579,6 @@ const Director = () => {
 		resetHash();
 
 		document.querySelector("html").classList.remove("is-showing-source");
-		onlyPlayVisible();
 		document
 			.querySelector(".composition-active")
 			.classList.remove("composition-active");
@@ -717,6 +620,7 @@ const Director = () => {
 					document.querySelector(".composition-back-button") as HTMLElement
 				).style.display = "none";
 				app.menu.showMenuIcon();
+				onlyPlayVisible();
 			},
 		});
 	};
@@ -800,20 +704,105 @@ const Director = () => {
 		app.menu.icon = select(".js-menu");
 
 		ml.compositions = document.querySelectorAll(".composition");
+		ml.prepareCompositions["ml1"]();
+		ml.prepareCompositions["ml2"]();
+		ml.prepareCompositions["ml3"]();
+
 		const header = document.querySelector(".header-title");
 		header.innerHTML = header.textContent.replace(
 			/\S/g,
 			"<span class='letter'>$&</span>"
 		);
 
+		ml.timelines["ml1"] = anime
+			.timeline({ autoplay: false })
+			.add({
+				targets: ".ml1 .letter",
+				scale: [0.3, 1],
+				opacity: [0, 1],
+				translateZ: 0,
+				easing: "easeOutExpo",
+				duration: 600,
+				delay: (el, i) => 70 * (i + 1),
+			})
+			.add({
+				targets: ".ml1 .line",
+				scaleX: [0, 1],
+				opacity: [0.5, 1],
+				easing: "easeOutExpo",
+				duration: 700,
+				offset: "-=875",
+				delay: (el, i, l) => 80 * (l - i),
+			});
+		ml.timelines["ml2"] = anime
+			.timeline({ autoplay: false })
+			.add({
+				targets: ".ml2 .letter",
+				scale: [4, 1],
+				opacity: [0, 1],
+				translateZ: 0,
+				easing: "easeOutExpo",
+				duration: 950,
+				delay: (el, i) => 70 * i,
+			});
+
+		ml.timelines["ml3"] = anime
+			.timeline({ autoplay: false })
+			.add({
+				targets: ".ml3 .letter",
+				opacity: [0, 1],
+				easing: "easeInOutQuad",
+				duration: 2250,
+				delay: (el, i) => 150 * (i + 1),
+			});
+
+		const ml4 = {
+			opacityIn: [0, 1],
+			scaleIn: [0.2, 1],
+			scaleOut: 3,
+			durationIn: 800,
+			durationOut: 600,
+			delay: 500,
+		};
+		ml.timelines["ml4"] = anime
+			.timeline({ autoplay: false })
+			.add({
+				targets: ".ml4 .letters-1",
+				opacity: ml4.opacityIn,
+				scale: ml4.scaleIn,
+				duration: ml4.durationIn,
+			})
+			.add({
+				targets: ".ml4 .letters-1",
+				opacity: 0,
+				scale: ml4.scaleOut,
+				duration: ml4.durationOut,
+				easing: "easeInExpo",
+				delay: ml4.delay,
+			})
+			.add({
+				targets: ".ml4 .letters-2",
+				opacity: ml4.opacityIn,
+				scale: ml4.scaleIn,
+				duration: ml4.durationIn,
+			})
+			.add({
+				targets: ".ml4 .letters-2",
+				opacity: 0,
+				scale: ml4.scaleOut,
+				duration: ml4.durationOut,
+				easing: "easeInExpo",
+				delay: ml4.delay,
+			})
+			.add({
+				targets: ".ml4 .letters-3",
+				opacity: ml4.opacityIn,
+				scale: ml4.scaleIn,
+				duration: ml4.durationIn,
+			});
+
 		onlyPlayVisible();
 		loadCompositionFromCurrentHash();
-
-		console.log("Director mounted");
-
-		return () => {
-			console.log("Director unmounted");
-		};
 	}, [
 		app.menu,
 		app.overlay,

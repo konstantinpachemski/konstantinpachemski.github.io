@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import "./composition.css";
 import {
-	loadAnimation,
 	loadCompositionHTML,
 	loadBackground,
 } from "./componentData";
@@ -14,7 +12,7 @@ interface CompositionProps {
 const Composition = (props: CompositionProps) => {
 	const { animationNumber, onClickCompositionWrapper } = props;
 
-	useEffect(() => loadAnimation(animationNumber), [animationNumber]);
+	// useEffect(() => loadAnimation(animationNumber), [animationNumber]);
 
 	return (
 		<div
@@ -33,7 +31,7 @@ const Composition = (props: CompositionProps) => {
 			</span>
 			<div
 				className="composition-wrapper"
-				// style={{ background: loadBackground(animationNumber) }}
+				data-color={loadBackground(animationNumber)}
 				onClick={onClickCompositionWrapper}
 			>
 				{loadCompositionHTML(animationNumber)}
