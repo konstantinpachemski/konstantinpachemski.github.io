@@ -199,7 +199,6 @@ const Director = () => {
 			duration: 600,
 			easing: "easeInOutExpo",
 		});
-		containerDelay += 350;
 
 		const animatedElements = Array.from(selectAll(".js-nav-animate"));
 
@@ -218,7 +217,7 @@ const Director = () => {
 				opacity: 0,
 				scale: 0.9,
 				translateY: "-7px",
-				delay: (el, i) => containerDelay + menuItemDelay * (i + 1),
+				delay: (el, i) => menuItemDelay * (i + 1),
 				duration: 550,
 			})
 			.add({
@@ -419,21 +418,24 @@ const Director = () => {
 		var textWrapper = document.querySelector(".ml1 .letters");
 		textWrapper.innerHTML = textWrapper.textContent.replace(
 			/\S/g,
-			"<span class='letter'>$&</span>"
+			(match) =>
+				`<span class='letter'>${match === " " ? "&nbsp;" : match}</span>`
 		);
 	};
 	ml.prepareCompositions["ml2"] = function () {
 		var textWrapper = document.querySelector(".ml2");
 		textWrapper.innerHTML = textWrapper.textContent.replace(
 			/\S/g,
-			"<span class='letter'>$&</span>"
+			(match) =>
+				`<span class='letter'>${match === " " ? "&nbsp;" : match}</span>`
 		);
 	};
 	ml.prepareCompositions["ml3"] = function () {
 		var textWrapper = document.querySelector(".ml3");
 		textWrapper.innerHTML = textWrapper.textContent.replace(
 			/\S/g,
-			"<span class='letter'>$&</span>"
+			(match) =>
+				`<span class='letter'>${match === " " ? "&nbsp;" : match}</span>`
 		);
 	};
 
@@ -715,7 +717,7 @@ const Director = () => {
 		);
 
 		ml.timelines["ml1"] = anime
-			.timeline({ autoplay: false })
+			.timeline({ autoplay: true, loop: true })
 			.add({
 				targets: ".ml1 .letter",
 				scale: [0.3, 1],
@@ -730,12 +732,25 @@ const Director = () => {
 				scaleX: [0, 1],
 				opacity: [0.5, 1],
 				easing: "easeOutExpo",
-				duration: 700,
+				duration: 1000,
 				offset: "-=875",
 				delay: (el, i, l) => 80 * (l - i),
+			})
+			.add({
+				targets: ".ml1",
+				opacity: [1, 0.9],
+				easing: "easeOutExpo",
+				duration: 4000,
+			})
+			.add({
+				targets: ".ml1",
+				opacity: 0,
+				duration: 750,
+				easing: "easeOutExpo",
 			});
+
 		ml.timelines["ml2"] = anime
-			.timeline({ autoplay: false })
+			.timeline({ autoplay: true, loop: true })
 			.add({
 				targets: ".ml2 .letter",
 				scale: [4, 1],
@@ -744,61 +759,61 @@ const Director = () => {
 				easing: "easeOutExpo",
 				duration: 950,
 				delay: (el, i) => 70 * i,
+			})
+			.add({
+				targets: ".ml2",
+				opacity: [1, 0.9],
+				easing: "easeOutExpo",
+				duration: 5000,
+			})
+			.add({
+				targets: ".ml2",
+				opacity: 0,
+				duration: 800,
+				easing: "easeOutExpo",
 			});
 
 		ml.timelines["ml3"] = anime
-			.timeline({ autoplay: false })
+			.timeline({ autoplay: true, loop: true })
 			.add({
 				targets: ".ml3 .letter",
 				opacity: [0, 1],
 				easing: "easeInOutQuad",
-				duration: 2250,
-				delay: (el, i) => 150 * (i + 1),
+				duration: 1200,
+				delay: (el, i) => 70 * (i + 1),
+			})
+			.add({
+				targets: ".ml3",
+				opacity: [1, 0.9],
+				easing: "easeOutExpo",
+				duration: 4000,
+			})
+			.add({
+				targets: ".ml3",
+				opacity: 0,
+				duration: 750,
+				easing: "easeOutExpo",
 			});
 
-		const ml4 = {
-			opacityIn: [0, 1],
-			scaleIn: [0.2, 1],
-			scaleOut: 3,
-			durationIn: 800,
-			durationOut: 600,
-			delay: 500,
-		};
 		ml.timelines["ml4"] = anime
-			.timeline({ autoplay: false })
+			.timeline({ autoplay: true, loop: true })
 			.add({
-				targets: ".ml4 .letters-1",
-				opacity: ml4.opacityIn,
-				scale: ml4.scaleIn,
-				duration: ml4.durationIn,
+				targets: ".ml4",
+				opacity: [0, 1],
+				scale: [0.2, 1],
+				duration: 3000,
 			})
 			.add({
-				targets: ".ml4 .letters-1",
+				targets: ".ml4",
+				opacity: [1, 0.9],
+				easing: "easeOutExpo",
+				duration: 3300,
+			})
+			.add({
+				targets: ".ml4",
 				opacity: 0,
-				scale: ml4.scaleOut,
-				duration: ml4.durationOut,
-				easing: "easeInExpo",
-				delay: ml4.delay,
-			})
-			.add({
-				targets: ".ml4 .letters-2",
-				opacity: ml4.opacityIn,
-				scale: ml4.scaleIn,
-				duration: ml4.durationIn,
-			})
-			.add({
-				targets: ".ml4 .letters-2",
-				opacity: 0,
-				scale: ml4.scaleOut,
-				duration: ml4.durationOut,
-				easing: "easeInExpo",
-				delay: ml4.delay,
-			})
-			.add({
-				targets: ".ml4 .letters-3",
-				opacity: ml4.opacityIn,
-				scale: ml4.scaleIn,
-				duration: ml4.durationIn,
+				duration: 750,
+				easing: "easeOutExpo",
 			});
 
 		onlyPlayVisible();

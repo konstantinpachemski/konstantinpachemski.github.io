@@ -1244,9 +1244,9 @@ a {
 
 .composition-source-subheader {
     font-size: 13px;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.1em;
     color: #adadad;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     padding-left: 40px
 }
 

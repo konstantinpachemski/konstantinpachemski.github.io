@@ -3,9 +3,13 @@ import Composition from "./components/moving-letters/composition/composition";
 import Director from "./Director";
 
 function App() {
+	const {
+		onClickHeaderTitle,
+		onClickCompositionBackButton,
+		onClickMenuButton,
+		onClickCompositionWrapper,
+	} = Director();
 
-	const { onClickHeaderTitle, onClickCompositionBackButton, onClickMenuButton, onClickCompositionWrapper } = Director();
-	
 	return (
 		<div className="App">
 			<div className="header">
@@ -23,7 +27,7 @@ function App() {
 				<div className="site-nav-overlay js-nav">
 					<div className="nav-content">
 						<div className="js-nav-header nav-header">
-							<span className="nav-header-text">Tobias Ahlin</span>
+							<span className="nav-header-text">Konstantin Pachemski</span>
 							<div className="nav-header-line js-nav-header-line"></div>
 						</div>
 
@@ -33,28 +37,12 @@ function App() {
 									Overview
 								</a>
 							</li>
-							<li className="nav-category js-nav-animate">
-								<a href="/blog/" className="nav-link">
-									Blog
-								</a>
-							</li>
-							<li className="nav-category js-nav-animate">
-								<a href="/blog/tutorials/" className="nav-link">
-									Tutorials
-								</a>
-							</li>
 						</ul>
 
 						<div className="nav-sublinks js-nav-animate">
 							<div className="js-nav-animate">
 								<a className="nav-link nav-sublink" href="/moving-letters/">
 									Moving Letters
-								</a>
-								<a className="nav-link nav-sublink" href="/typesource/">
-									TypeSource
-								</a>
-								<a className="nav-link nav-sublink" href="/spinkit/">
-									SpinKit
 								</a>
 							</div>
 						</div>
@@ -81,7 +69,11 @@ function App() {
 			</div>
 
 			<div className="composition-source">
-				<a href="/moving-letters/" className="composition-back-button" onClick={onClickCompositionBackButton}>
+				<a
+					href="/moving-letters/"
+					className="composition-back-button"
+					onClick={onClickCompositionBackButton}
+				>
 					<svg
 						className="composition-back-image"
 						xmlns="http://www.w3.org/2000/svg"
@@ -98,37 +90,58 @@ function App() {
 				</a>
 
 				<div className="composition-source-container">
-					<h1 className="composition-source-header composition-source-text">
-						Effect / 02
-					</h1>
+					<h1 className="composition-source-header composition-source-text"></h1>
 					<h2 className="composition-source-subheader composition-source-text">
-						HTML
+						
 					</h2>
-					<pre className="highlight composition-source-text">
+					{/* <pre className="highlight composition-source-text">
 						<code className="composition-source-code composition-source-code-html"></code>
-					</pre>
+					</pre> */}
 
 					<h2 className="composition-source-subheader composition-source-text">
-						CSS
+					I'm a tech-savvy professional with three years of experience as a
+						full-stack software engineer who enjoys creating highly performant,
+						user-friendly, and accessible web applications. I love diving into
+						new technologies with a particular inclination towards anything
+						related to React. I learn quickly and adapt easily. Passionate about
+						exploring coding patterns and practices to deliver high-quality code
+						and minimize future refactoring. Solution-driven, always seeking
+						efficient ways to tackle challenges. I believe that documentation is
+						a vital aspect of ensuring clarity, efficiency, and long-term
+						success in any project. I highly value teamwork and believe in its
+						power to drive collective success and foster a supportive
+						environment.
 					</h2>
-					<pre className="highlight composition-source-text">
+					{/* <pre className="highlight composition-source-text">
 						<code className="composition-source-code composition-source-code-css"></code>
-					</pre>
+					</pre> */}
 
 					<h2 className="composition-source-subheader composition-source-text">
-						Javascript
+						
 					</h2>
-					<pre className="highlight composition-source-text">
+					{/* <pre className="highlight composition-source-text">
 						<code className="composition-source-code composition-source-code-js"></code>
-					</pre>
+					</pre> */}
 				</div>
 			</div>
 
 			<div className="compositions" style={{ flexFlow: "row wrap" }}>
-				<Composition animationNumber={1} onClickCompositionWrapper={onClickCompositionWrapper} />
-				<Composition animationNumber={2} onClickCompositionWrapper={onClickCompositionWrapper} />
-				<Composition animationNumber={3} onClickCompositionWrapper={onClickCompositionWrapper} />
-				<Composition animationNumber={4} onClickCompositionWrapper={onClickCompositionWrapper} />
+				<Composition
+					animationNumber={1}
+					onClickCompositionWrapper={onClickCompositionWrapper}
+				/>
+				<Composition
+					animationNumber={2}
+					onClickCompositionWrapper={onClickCompositionWrapper}
+				/>
+				<Composition
+					animationNumber={3}
+					onClickCompositionWrapper={onClickCompositionWrapper}
+				/>
+				<Composition
+					animationNumber={4}
+					onClickCompositionWrapper={onClickCompositionWrapper}
+				/>
 			</div>
 		</div>
 	);

@@ -7,23 +7,17 @@ const loadCompositionHTML = (n: number) => {
 				<h1 className="ml1">
 					<span className="text-wrapper">
 						<span className="line line1"></span>
-						<span className="letters">THURSDAY</span>
+						<span className="letters">Profile</span>
 						<span className="line line2"></span>
 					</span>
 				</h1>
 			);
 		case 2:
-			return <h1 className="ml2">Sunny mornings</h1>;
+			return <h1 className="ml2">Experience</h1>;
 		case 3:
-			return <h1 className="ml3">Great Thinkers</h1>;
+			return <h1 className="ml3">Education</h1>;
 		case 4:
-			return (
-				<h1 className="ml4">
-					<span className="letters letters-1">Ready</span>
-					<span className="letters letters-2">Set</span>
-					<span className="letters letters-3">Go!</span>
-				</h1>
-			);
+			return <h1 className="ml4">Technologies</h1>;
 		default:
 			return <p>No data provided</p>;
 	}
