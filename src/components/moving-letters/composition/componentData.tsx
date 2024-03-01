@@ -1,12 +1,10 @@
-import anime from "animejs";
-
 const loadCompositionHTML = (n: number) => {
 	switch (n) {
 		case 1:
 			return (
 				<h1 className="ml1">
 					<span className="text-wrapper">
-						<span className="line line1"></span>
+						{/* <span className="line line1"></span> */}
 						<span className="letters">Profile</span>
 						<span className="line line2"></span>
 					</span>

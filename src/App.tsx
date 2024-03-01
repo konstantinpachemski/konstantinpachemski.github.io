@@ -2,6 +2,187 @@ import "./App.css";
 import Composition from "./components/moving-letters/composition/composition";
 import Director from "./Director";
 
+const CompositionContent = () => {
+	return (
+		<>
+			{/* composition-souce-active */}
+			<div className="composition-source-header">
+				<p className="composition-source-text">
+					I'm a tech-savvy professional with three years of experience as a
+					full-stack software engineer who enjoys creating highly performant,
+					user-friendly, and accessible web applications. I love diving into new
+					technologies with a particular inclination towards anything related to
+					React. I learn quickly and adapt easily.
+					<br /> <br />
+					Passionate about exploring coding patterns and practices to deliver
+					high-quality code and minimize future refactoring. Solution-driven,
+					always seeking efficient ways to tackle challenges. I believe that
+					documentation is a vital aspect of ensuring clarity, efficiency, and
+					long-term success in any project. I highly value teamwork and believe
+					in its power to drive collective success and foster a supportive
+					environment.
+				</p>
+			</div>
+			<div className="composition-source-header">
+				<div className="composition-source-subheader-container">
+					<h2 className="composition-source-subheader composition-source-subheader-left">
+						One Inside AG, Full-Stack Software Engineer
+					</h2>
+					<h2 className="composition-source-subheader composition-source-subheader-right text-end">
+						(07/2021-10/2023 Skopje, N. Macedonia)
+					</h2>
+				</div>
+
+				<p className="composition-source-text">
+					- I served as a full-stack engineer, contributing to multiple projects
+					in the government, transport, banking and legal sectors.
+					<br />
+					- I was responsible for implementing responsive web designs to code,
+					built reusable web components with detail to structure and code
+					standards, worked in agile team collaboration cycles (Scrum) and
+					enjoyed supporting multiple projects at the same time. <br />- Notable
+					technologies: React, Angular, Preact, TypeScript, Sass, TailwindCSS,
+					Web components (@sbb-esta/lyne-components), Stencil, Jira, Cypress,
+					Storybook, Figma
+				</p>
+
+				<div className="composition-source-subheader-container">
+					<h2 className="composition-source-subheader composition-source-subheader-left">
+						MOZOK GmbH, Full-Stack Software Engineer
+					</h2>
+					<h2 className="composition-source-subheader composition-source-subheader-right text-end">
+						(01/2021-07/2021 Skopje, N.Macedonia (remote))
+					</h2>
+				</div>
+
+				<p className="composition-source-text">
+					- Contributed to the development of web application within the gaming
+					sector and also worked on a landing page •Assumed control of a
+					project, concurrently refactoring legacy code to new framework while
+					balancing contribution to the development of new features. <br />
+					- Enhanced designs, addressed bugs, and conducted both refactoring of
+					existing elements and the implementation of new functional
+					requirements, such as API parsers. <br />
+					- Explored animations and Svelte with the aim of incorporating a fresh
+					design into our company's landing page. <br /> - Notable technologies:
+					React, React Native, TypeScript, Svelte, AnimeJS
+				</p>
+
+				<div className="composition-source-subheader-container">
+					<h2 className="composition-source-subheader composition-source-subheader-left">
+						Freelancing
+					</h2>
+					<h2 className="composition-source-subheader composition-source-subheader-right text-end">
+						(05/2019-11/2020 Skopje (remote))
+					</h2>
+				</div>
+
+				<div className="composition-source-subheader-container">
+					<h2 className="composition-source-subheader composition-source-subheader-left">
+						AzurBuilds
+					</h2>
+				</div>
+
+				<p className="composition-source-text">
+					- I collaborated with a team of two other developers, all of whom
+					shared a strong passion for gaming, as our project centered around
+					playercreated builds using ReactJS with Material UI, ExpressJS and
+					MongoDb.
+				</p>
+
+				<div className="composition-source-subheader-container">
+					<h2 className="composition-source-subheader composition-source-subheader-left">
+						Lunchtime
+					</h2>
+				</div>
+
+				<p className="composition-source-text">
+					- I collaborated with a team of two other developers, all of whom
+					shared a strong passion for gaming, as our project centered around
+					playercreated builds using ReactJS with Material UI, ExpressJS and
+					MongoDb.
+				</p>
+
+				<div className="composition-source-subheader-container">
+					<h2 className="composition-source-subheader composition-source-subheader-left">
+						Internships
+					</h2>
+					<h2 className="composition-source-subheader composition-source-subheader-right text-end">
+						(07/2017-03/2019 Skopje, N.Macedonia )
+					</h2>
+				</div>
+
+				<div className="composition-source-subheader-container">
+					<h2 className="composition-source-subheader composition-source-subheader-left">
+						One Inside (Front-end React Intern)
+					</h2>
+				</div>
+
+				<p className="composition-source-text">
+					- I collaborated with a great team on a client project and, with the
+					guidance of our CEO and CTO, started working on an app using React and
+					Firebase to meet the company's needs.
+				</p>
+
+				<div className="composition-source-subheader-container">
+					<h2 className="composition-source-subheader composition-source-subheader-left">
+						ASSECO SEE (Back-end Engineer Intern)
+					</h2>
+				</div>
+
+				<p className="composition-source-text">
+					- Independently tackled diverse tasks spanning various technologies,
+					including .Net Core, Entity Framework, Microsoft SQL Server, and a
+					brief introductory workshop on React. Engaged in insightful
+					presentations from both technical and non-technical colleagues
+					throughout the program, enhancing our collective knowledge.
+				</p>
+
+				<div className="composition-source-subheader-container">
+					<h2 className="composition-source-subheader composition-source-subheader-left">
+						HASELT (QA Engineer Intern)
+					</h2>
+				</div>
+
+				<p className="composition-source-text">
+					- As part of a collaborative team consisting of backend interns and a
+					UI/UX designer, I served as a quality assurance engineer intern. In
+					this hybrid role, my responsibilities encompassed diverse tasks such
+					as identifying software requirements, creating tasks, writing use
+					cases, conducting unit tests, maintaining project documentation, and
+					researching potential new tools.
+				</p>
+			</div>
+			<div className="composition-source-header">
+				<div className="composition-source-subheader-container">
+					<h2 className="composition-source-subheader composition-source-subheader-left">
+						Faculty of Computer Science and Engineering, Bachelor in Software
+						Engineering
+					</h2>
+					<h2 className="composition-source-subheader composition-source-subheader-right text-end">
+						2016-present Skopje, N.Macedonia
+					</h2>
+				</div>
+
+				<div className="composition-source-subheader-container">
+					<h2 className="composition-source-subheader composition-source-subheader-left">
+						Workshops
+					</h2>
+				</div>
+				<p className="composition-source-text">
+					- Agile Methodologies at Endava <br /> 
+					- Code Talks at Seavus •Flutter <br /> 
+					- Introduction at Public Room <br />
+					- Game Design at M3DS Academy <br />
+					- Regular developer meetups at Base42 hackerspace <br />
+					- Many more unmentioned <br />
+					- Actively attending local/online developer events
+				</p>
+			</div>
+		</>
+	);
+};
+
 function App() {
 	const {
 		onClickHeaderTitle,
@@ -90,38 +271,7 @@ function App() {
 				</a>
 
 				<div className="composition-source-container">
-					<h1 className="composition-source-header composition-source-text"></h1>
-					<h2 className="composition-source-subheader composition-source-text">
-						
-					</h2>
-					{/* <pre className="highlight composition-source-text">
-						<code className="composition-source-code composition-source-code-html"></code>
-					</pre> */}
-
-					<h2 className="composition-source-subheader composition-source-text">
-					I'm a tech-savvy professional with three years of experience as a
-						full-stack software engineer who enjoys creating highly performant,
-						user-friendly, and accessible web applications. I love diving into
-						new technologies with a particular inclination towards anything
-						related to React. I learn quickly and adapt easily. Passionate about
-						exploring coding patterns and practices to deliver high-quality code
-						and minimize future refactoring. Solution-driven, always seeking
-						efficient ways to tackle challenges. I believe that documentation is
-						a vital aspect of ensuring clarity, efficiency, and long-term
-						success in any project. I highly value teamwork and believe in its
-						power to drive collective success and foster a supportive
-						environment.
-					</h2>
-					{/* <pre className="highlight composition-source-text">
-						<code className="composition-source-code composition-source-code-css"></code>
-					</pre> */}
-
-					<h2 className="composition-source-subheader composition-source-text">
-						
-					</h2>
-					{/* <pre className="highlight composition-source-text">
-						<code className="composition-source-code composition-source-code-js"></code>
-					</pre> */}
+					<CompositionContent />
 				</div>
 			</div>
 

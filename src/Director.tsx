@@ -91,6 +91,8 @@ interface MovingLetters {
 	timelines?: any;
 	overlay?: Overlay;
 	isShowingSource?: any;
+	compositionsContent?: any;
+	compositionsContentShowClass?: string;
 	compositions?: any;
 	prepareCompositions?: any;
 	showComposition?: (comp: any, e: any, options?: any) => void;
@@ -440,9 +442,12 @@ const Director = () => {
 	};
 
 	ml.timelines = [];
+	ml.compositions = [];
 
 	ml.overlay = {};
 	ml.isShowingSource = false;
+	ml.compositionsContentShowClass = "composition-source-show";
+	ml.compositionsContent = [];
 
 	const onClickCompositionWrapper = (e) => {
 		showComposition(e.currentTarget, e);
@@ -456,6 +461,8 @@ const Director = () => {
 	const onlyPlayVisible = () => {
 		// Don't play if any overlays are playing
 		if (ml.isShowingSource || app.menu.visible) return;
+
+		if (ml.compositions.length === 0) ml.compositions = document.querySelectorAll(".composition");
 		ml.compositions.forEach(function (element, i) {
 			compShouldPlay(element)
 				? playComposition(element)
@@ -489,8 +496,6 @@ const Director = () => {
 
 	const pauseComposition = (comp) => {
 		let compID = comp.querySelector("h1").className;
-		// console.log("compID", compID, ml.timelines[compID]);
-		console.log(compID, ml.timelines[compID]);
 		ml.timelines[compID].pause();
 	};
 
@@ -509,6 +514,8 @@ const Director = () => {
 
 	const showSourceForComposition = (c: HTMLElement, e: Event) => {
 		ml.isShowingSource = true;
+
+		console.log("showSourceForComposition", c, e);
 
 		document.querySelector("html").classList.add("is-showing-source");
 		c.classList.add("composition-active");
@@ -541,9 +548,9 @@ const Director = () => {
 		(
 			document.querySelector(".composition-source-container") as HTMLElement
 		).style.transform = "scaleX(0)";
-		(
-			document.querySelector(".composition-source-container") as HTMLElement
-		).style.display = "block";
+		// (
+		// 	document.querySelector(".composition-source-container") as HTMLElement
+		// ).style.display = "block";
 
 		// Animate in overlay elements
 		anime
@@ -629,6 +636,12 @@ const Director = () => {
 
 	const updateHashForComposition = (c) => {
 		window.location.hash = (getElementIndex(c.parentElement) + 1).toString();
+		// document querySelector all for all elements with class composition-source-header
+		// write me the code mister
+		
+		document.querySelectorAll(".composition-source-header").forEach((el, i) => {
+			i === getElementIndex(c.parentElement) ? el.classList.add("composition-source-header-active") : el.classList.remove("composition-source-header-active");
+		});
 	};
 
 	const getElementIndex = (node) => {
