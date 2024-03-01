@@ -1,49 +1,9 @@
-.ml3 {
-  position: relative;
-  font-weight: 900;
-  font-size: 3em;
-}
-
-.ml3 .text-wrapper {
-  position: relative;
-  display: inline-block;
-  padding-top: 0.2em;
-  padding-right: 0.05em;
-  padding-bottom: 0.1em;
-  overflow: hidden;
-}
-
-.ml3 .letter {
-  display: inline-block;
-  line-height: 1em;
-}
-
-.ml2 {
-  position: relative;
-  font-weight: 700;
-  font-size: 3em;
-}
-
-.ml2 .text-wrapper {
-  position: relative;
-  display: inline-block;
-  padding-top: 0.2em;
-  padding-right: 0.05em;
-  padding-bottom: 0.1em;
-  overflow: hidden;
-}
-
-.ml2 .letter {
-  transform-origin: 50% 100%;
-  display: inline-block;
-  line-height: 1em;
-}
-
 .ml1 {
   position: relative;
-  font-weight: 800;
-  font-size: 3em;
-  letter-spacing: 0.015em;
+  font-weight: 700;
+  font-size: 2.5em;
+  letter-spacing: 0.035em;
+  color: #0C0504;
 }
 
 .ml1 .text-wrapper {
@@ -61,13 +21,55 @@
   transform-origin: 0 0;
 }
 
+.ml2 {
+  position: relative;
+  font-weight: 800;
+  font-size: 2.5em;
+  color: #FFFFF0;
+}
+
+.ml2 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml2 .letter {
+  transform-origin: 50% 100%;
+  display: inline-block;
+  line-height: 1em;
+}
+
+.ml3 {
+  position: relative;
+  font-weight: 800;
+  font-size: 2.5em;
+  color: #F9F6EE;
+}
+
+.ml3 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml3 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
 .ml4 {
-  color: #fff;
+  color: #EDEADE;
   padding: 40px 0;
   font-weight: 800;
-  font-size: 2em;
-  text-transform: uppercase;
-  letter-spacing: 0.5em;
+  font-size: 2.2em;
+  letter-spacing: 0.2em;
   overflow: hidden;
 }
 

@@ -20,7 +20,7 @@ const loadCompositionHTML = (n: number) => {
 			return (
 				<h1 className="ml3">
 					<span className="text-wrapper">
-						<span className="letters">Education & Workshops</span>
+						<span className="letters">Education and Workshops</span>
 					</span>
 				</h1>
 			);
@@ -36,13 +36,13 @@ const loadCompositionHTML = (n: number) => {
 const loadBackground = (n: number) => {
 	switch (n) {
 		case 1:
-			return "#9ba5b5";
+			return "#f3e9c6";
 		case 2:
-			return "#e8c3b9";
-		case 3:
 			return "#c1605c";
-		case 4:
+		case 3:
 			return "#224a54";
+		case 4:
+			return "#3B1F2B";
 		default:
 			return "#fff";
 	}

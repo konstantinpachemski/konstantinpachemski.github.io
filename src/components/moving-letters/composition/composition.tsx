@@ -12,8 +12,6 @@ interface CompositionProps {
 const Composition = (props: CompositionProps) => {
 	const { animationNumber, onClickCompositionWrapper } = props;
 
-	// useEffect(() => loadAnimation(animationNumber), [animationNumber]);
-
 	return (
 		<div
 			className="composition"
@@ -27,7 +25,7 @@ const Composition = (props: CompositionProps) => {
 					width="18"
 					height="13"
 				/>
-				Source
+				Find out more
 			</span>
 			<div
 				className="composition-wrapper"

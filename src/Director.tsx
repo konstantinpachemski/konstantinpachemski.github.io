@@ -778,7 +778,7 @@ const Director = () => {
 			.timeline({ loop: true })
 			.add({
 				targets: ".ml3 .letter",
-				translateY: ["1.1em", 0],
+				translateY: ["2em", 0],
 				translateZ: 0,
 				duration: 750,
 				delay: (el, i) => 50 * i,

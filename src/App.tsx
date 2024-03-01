@@ -275,7 +275,7 @@ function App() {
 				</div>
 			</div>
 
-			<div className="compositions" style={{ flexFlow: "row wrap" }}>
+			<div className="compositions">
 				<Composition
 					animationNumber={1}
 					onClickCompositionWrapper={onClickCompositionWrapper}

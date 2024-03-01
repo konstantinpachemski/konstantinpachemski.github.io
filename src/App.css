@@ -1067,7 +1067,7 @@ a {
 
 .compositions {
     display: flex;
-    flex-flow: row wrap
+    flex-flow: row wrap;
 }
 
 .composition {
@@ -1122,7 +1122,8 @@ a {
 .composition-hint-arrows {
     vertical-align: middle;
     position: relative;
-    top: -1px
+    top: -1px;
+    padding-right: 5px;
 }
 
 .composition-wrapper {
