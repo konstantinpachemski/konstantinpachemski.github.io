@@ -707,20 +707,41 @@ p {
     }
 }
 
-.collection-footer-info {
+.footer {
+    display: grid;
+    place-items: center;
     padding-top: 80px;
     background-color: #fff;
     color: #000;
     text-align: center;
-    padding-bottom: 80px
+    padding-bottom: 80px;
 }
 
-.collection-footer-box {
-    width: 400px;
-    text-align: left;
-    display: inline-block;
-    vertical-align: top;
-    max-width: 90%
+.footer-container {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 20px;
+    max-width: 500px;
+}
+
+.footer-image {
+    justify-self: start;
+    img {
+        max-width: 80%;
+        height: auto;
+        border-radius: 50%;
+    }
+}
+
+.footer-text {
+    text-align: center;
+    h2 {
+        font-weight: 200;
+    }
+    p {
+        color: #ADADBA;
+    }
 }
 
 .collection-footer-profile p {

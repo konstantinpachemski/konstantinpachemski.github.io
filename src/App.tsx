@@ -170,13 +170,13 @@ const CompositionContent = () => {
 					</h2>
 				</div>
 				<p className="composition-source-text">
-					- Agile Methodologies at Endava <br /> 
-					- Code Talks at Seavus •Flutter <br /> 
+					- Agile Methodologies at Endava <br />
+					- Code Talks at Seavus •Flutter <br />
 					- Introduction at Public Room <br />
 					- Game Design at M3DS Academy <br />
 					- Regular developer meetups at Base42 hackerspace <br />
-					- Many more unmentioned <br />
-					- Actively attending local/online developer events
+					- Many more unmentioned <br />- Actively attending local/online
+					developer events
 				</p>
 			</div>
 		</>
@@ -292,6 +292,32 @@ function App() {
 					animationNumber={4}
 					onClickCompositionWrapper={onClickCompositionWrapper}
 				/>
+			</div>
+			<div className="footer">
+				<div className="footer-container">
+					<div className="footer-image">
+						<img src="/avatar-res.jpg" alt="Avatar" />
+					</div>
+					<div className="footer-text">
+						<h2>Konstantin Pachemski</h2>
+						<p>
+							A frontend developer passionate about
+							crafting delightful user experiences.
+						</p>
+					</div>
+				</div>
+				{/* <div className="collection-footer-box collection-footer-profile">
+					<img
+						src="/avatar-res.jpg"
+						alt="Avatar"
+						width="102"
+						className="collection-profile-image"
+						height={102}
+					/>
+					<h2 className="collection-inline-header collection-inline-header-w-subheader">
+						<a href="https://twitter.com/tobiasahlin">Konstantin Pachemski</a>
+					</h2>
+				</div> */}
 			</div>
 		</div>
 	);
