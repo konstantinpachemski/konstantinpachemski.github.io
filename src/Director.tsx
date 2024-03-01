@@ -114,13 +114,13 @@ interface MovingLetters {
 	verticalCenterForElement?: (element: any) => number;
 }
 
-interface AnimationsControllerProps {
-	ml: MovingLetters;
-	onClickHeaderTitle: () => void;
-	onClickCompositionWrapper: (e: any) => void;
-	onClickCompositionBackButton: (e: any) => void;
-	onClickMenuButton: (e: any) => void;
-}
+// interface AnimationsControllerProps {
+// 	ml: MovingLetters;
+// 	onClickHeaderTitle: () => void;
+// 	onClickCompositionWrapper: (e: any) => void;
+// 	onClickCompositionBackButton: (e: any) => void;
+// 	onClickMenuButton: (e: any) => void;
+// }
 
 const select = (selector) => document.querySelector(selector);
 const selectAll = (selector) => document.querySelectorAll(selector);
@@ -415,9 +415,9 @@ const Director = () => {
 
 	const ml: MovingLetters = {};
 
-	ml.prepareCompositions = {};
+	ml.prepareCompositions = [];
 	ml.prepareCompositions["ml1"] = function () {
-		var textWrapper = document.querySelector(".ml1 .letters");
+		let textWrapper = document.querySelector(".ml1 .letters");
 		textWrapper.innerHTML = textWrapper.textContent.replace(
 			/\S/g,
 			(match) =>
@@ -425,7 +425,7 @@ const Director = () => {
 		);
 	};
 	ml.prepareCompositions["ml2"] = function () {
-		var textWrapper = document.querySelector(".ml2");
+		let textWrapper = document.querySelector(".ml2 .letters");
 		textWrapper.innerHTML = textWrapper.textContent.replace(
 			/\S/g,
 			(match) =>
@@ -433,7 +433,15 @@ const Director = () => {
 		);
 	};
 	ml.prepareCompositions["ml3"] = function () {
-		var textWrapper = document.querySelector(".ml3");
+		let textWrapper = document.querySelector(".ml3 .letters");
+		textWrapper.innerHTML = textWrapper.textContent.replace(
+			/\S/g,
+			(match) =>
+				`<span class='letter'>${match === " " ? "&nbsp;" : match}</span>`
+		);
+	};
+	ml.prepareCompositions["ml4"] = function () {
+		var textWrapper = document.querySelector(".ml4");
 		textWrapper.innerHTML = textWrapper.textContent.replace(
 			/\S/g,
 			(match) =>
@@ -462,7 +470,8 @@ const Director = () => {
 		// Don't play if any overlays are playing
 		if (ml.isShowingSource || app.menu.visible) return;
 
-		if (ml.compositions.length === 0) ml.compositions = document.querySelectorAll(".composition");
+		if (ml.compositions.length === 0)
+			ml.compositions = document.querySelectorAll(".composition");
 		ml.compositions.forEach(function (element, i) {
 			compShouldPlay(element)
 				? playComposition(element)
@@ -638,9 +647,11 @@ const Director = () => {
 		window.location.hash = (getElementIndex(c.parentElement) + 1).toString();
 		// document querySelector all for all elements with class composition-source-header
 		// write me the code mister
-		
+
 		document.querySelectorAll(".composition-source-header").forEach((el, i) => {
-			i === getElementIndex(c.parentElement) ? el.classList.add("composition-source-header-active") : el.classList.remove("composition-source-header-active");
+			i === getElementIndex(c.parentElement)
+				? el.classList.add("composition-source-header-active")
+				: el.classList.remove("composition-source-header-active");
 		});
 	};
 
@@ -722,6 +733,7 @@ const Director = () => {
 		ml.prepareCompositions["ml1"]();
 		ml.prepareCompositions["ml2"]();
 		ml.prepareCompositions["ml3"]();
+		ml.prepareCompositions["ml4"]();
 
 		const header = document.querySelector(".header-title");
 		header.innerHTML = header.textContent.replace(
@@ -730,103 +742,70 @@ const Director = () => {
 		);
 
 		ml.timelines["ml1"] = anime
-			.timeline({ autoplay: true, loop: true })
+			.timeline({ loop: true })
 			.add({
 				targets: ".ml1 .letter",
-				scale: [0.3, 1],
-				opacity: [0, 1],
-				translateZ: 0,
-				easing: "easeOutExpo",
-				duration: 600,
-				delay: (el, i) => 70 * (i + 1),
-			})
-			.add({
-				targets: ".ml1 .line",
-				scaleX: [0, 1],
-				opacity: [0.5, 1],
-				easing: "easeOutExpo",
-				duration: 1000,
-				offset: "-=875",
-				delay: (el, i, l) => 80 * (l - i),
-			})
-			.add({
-				targets: ".ml1",
-				opacity: [1, 0.9],
-				easing: "easeOutExpo",
-				duration: 4000,
+				translateX: ["1em", 0],
+				rotateY: [-90, 0],
+				duration: 1300,
+				delay: (el, i) => 45 * i,
 			})
 			.add({
 				targets: ".ml1",
 				opacity: 0,
-				duration: 750,
+				duration: 1000,
 				easing: "easeOutExpo",
+				delay: 1000,
 			});
-
 		ml.timelines["ml2"] = anime
-			.timeline({ autoplay: true, loop: true })
+			.timeline({ loop: true })
 			.add({
 				targets: ".ml2 .letter",
-				scale: [4, 1],
-				opacity: [0, 1],
-				translateZ: 0,
-				easing: "easeOutExpo",
-				duration: 950,
-				delay: (el, i) => 70 * i,
-			})
-			.add({
-				targets: ".ml2",
-				opacity: [1, 0.9],
-				easing: "easeOutExpo",
-				duration: 5000,
+				scale: [0, 1],
+				duration: 1500,
+				elasticity: 600,
+				delay: (el, i) => 45 * (i + 1),
 			})
 			.add({
 				targets: ".ml2",
 				opacity: 0,
-				duration: 800,
+				duration: 1000,
 				easing: "easeOutExpo",
+				delay: 1000,
 			});
 
 		ml.timelines["ml3"] = anime
-			.timeline({ autoplay: true, loop: true })
+			.timeline({ loop: true })
 			.add({
 				targets: ".ml3 .letter",
-				opacity: [0, 1],
-				easing: "easeInOutQuad",
-				duration: 1200,
-				delay: (el, i) => 70 * (i + 1),
-			})
-			.add({
-				targets: ".ml3",
-				opacity: [1, 0.9],
-				easing: "easeOutExpo",
-				duration: 4000,
+				translateY: ["1.1em", 0],
+				translateZ: 0,
+				duration: 750,
+				delay: (el, i) => 50 * i,
 			})
 			.add({
 				targets: ".ml3",
 				opacity: 0,
-				duration: 750,
+				duration: 1000,
 				easing: "easeOutExpo",
+				delay: 1000,
 			});
 
 		ml.timelines["ml4"] = anime
-			.timeline({ autoplay: true, loop: true })
+			.timeline({ loop: true })
 			.add({
-				targets: ".ml4",
-				opacity: [0, 1],
-				scale: [0.2, 1],
-				duration: 3000,
-			})
-			.add({
-				targets: ".ml4",
-				opacity: [1, 0.9],
+				targets: ".ml4 .letter",
+				translateY: [-160, 0],
 				easing: "easeOutExpo",
-				duration: 3300,
+				duration: 1400,
+				delay: (el, i) => 30 * i,
 			})
 			.add({
 				targets: ".ml4",
 				opacity: 0,
-				duration: 750,
+				duration: 1000,
 				easing: "easeOutExpo",
+				delay: 1000,
 			});
 
 		onlyPlayVisible();

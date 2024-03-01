@@ -8,7 +8,7 @@ const CompositionContent = () => {
 			{/* composition-souce-active */}
 			<div className="composition-source-header">
 				<p className="composition-source-text">
-					I'm a tech-savvy professional with three years of experience as a
+					I'm a tech-savvy professional with four years of experience as a
 					full-stack software engineer who enjoys creating highly performant,
 					user-friendly, and accessible web applications. I love diving into new
 					technologies with a particular inclination towards anything related to
