@@ -26,10 +26,11 @@ const CompositionContent = () => {
 			<div className="composition-source-header">
 				<div className="composition-source-subheader-container">
 					<h2 className="composition-source-subheader composition-source-subheader-left">
-						One Inside AG, Full-Stack Software Engineer
+						One Inside AG (Full-Stack Software Engineer)
 					</h2>
 					<h2 className="composition-source-subheader composition-source-subheader-right text-end">
-						(07/2021-10/2023 Skopje, N. Macedonia)
+						July/2021 - Oct/2023 <br />
+						Skopje, North Macedonia
 					</h2>
 				</div>
 
@@ -48,23 +49,25 @@ const CompositionContent = () => {
 
 				<div className="composition-source-subheader-container">
 					<h2 className="composition-source-subheader composition-source-subheader-left">
-						MOZOK GmbH, Full-Stack Software Engineer
+						MOZOK GmbH (Full-Stack Software Engineer)
 					</h2>
-					<h2 className="composition-source-subheader composition-source-subheader-right text-end">
-						(01/2021-07/2021 Skopje, N.Macedonia (remote))
+					<h2 className="composition-source-subheader composition-source-subheader-right">
+						Jan/2021 - Jul/2021 <br /> (remote)
 					</h2>
 				</div>
 
 				<p className="composition-source-text">
 					- Contributed to the development of web application within the gaming
-					sector and also worked on a landing page •Assumed control of a
-					project, concurrently refactoring legacy code to new framework while
-					balancing contribution to the development of new features. <br />
+					sector and also worked on a landing page <br />
+					- Assumed control of a project, concurrently refactoring legacy code
+					to new framework while balancing contribution to the development of
+					new features. <br />
 					- Enhanced designs, addressed bugs, and conducted both refactoring of
 					existing elements and the implementation of new functional
 					requirements, such as API parsers. <br />
 					- Explored animations and Svelte with the aim of incorporating a fresh
-					design into our company's landing page. <br /> - Notable technologies:
+					design into our company's landing page. <br />
+					- Notable technologies:
 					React, React Native, TypeScript, Svelte, AnimeJS
 				</p>
 
@@ -73,7 +76,7 @@ const CompositionContent = () => {
 						Freelancing
 					</h2>
 					<h2 className="composition-source-subheader composition-source-subheader-right text-end">
-						(05/2019-11/2020 Skopje (remote))
+						May/2019 - Nov/2020 <br /> (remote)
 					</h2>
 				</div>
 
@@ -108,7 +111,7 @@ const CompositionContent = () => {
 						Internships
 					</h2>
 					<h2 className="composition-source-subheader composition-source-subheader-right text-end">
-						(07/2017-03/2019 Skopje, N.Macedonia )
+						07/2017-03/2019 <br /> Skopje, N.Macedonia
 					</h2>
 				</div>
 
@@ -159,8 +162,8 @@ const CompositionContent = () => {
 						Faculty of Computer Science and Engineering, Bachelor in Software
 						Engineering
 					</h2>
-					<h2 className="composition-source-subheader composition-source-subheader-right text-end">
-						2016-present Skopje, N.Macedonia
+					<h2 className="composition-source-subheader composition-source-subheader-right">
+						2016 - present <br /> Skopje, N.Macedonia
 					</h2>
 				</div>
 
@@ -189,6 +192,7 @@ function App() {
 		onClickCompositionBackButton,
 		onClickMenuButton,
 		onClickCompositionWrapper,
+		animateButton,
 	} = Director();
 
 	return (
@@ -214,44 +218,41 @@ function App() {
 
 						<ul className="nav-categories">
 							<li className="nav-category js-nav-animate">
-								<a href="/" className="nav-link">
-									Overview
+								<a
+									href="mailto:konstantin.pachemski@gmail.com"
+									className="nav-link"
+								>
+									Email
+								</a>
+							</li>
+							<li className="nav-category js-nav-animate">
+								<a
+									href="https://github.com/konstantinpachemski/"
+									className="nav-link"
+								>
+									GitHub
+								</a>
+							</li>
+							<li className="nav-category js-nav-animate">
+								<a
+									href="https://www.linkedin.com/in/konstantin-pachemski/"
+									className="nav-link"
+								>
+									LinkedIn
 								</a>
 							</li>
 						</ul>
-
-						<div className="nav-sublinks js-nav-animate">
-							<div className="js-nav-animate">
-								<a className="nav-link nav-sublink" href="/moving-letters/">
-									Moving Letters
-								</a>
-							</div>
-						</div>
 					</div>
 				</div>
 
 				<h1 className="header-title" onClick={onClickHeaderTitle}>
 					Konstantin Pachemski
 				</h1>
-				<div className="header-links">
-					<a href="https://twitter.com/tobiasahlin" className="header-link">
-						<svg
-							className="contact-icon twitter-icon-svg"
-							fill="#fff"
-							xmlns="http://www.w3.org/2000/svg"
-							width="60"
-							height="49"
-							viewBox="0 0 60 49"
-						>
-							<path d="M60 5.8a32.794 32.794 0 0 1-7.02 2A12.573 12.573 0 0 0 58.416.9a22.046 22.046 0 0 1-7.924 3A11.967 11.967 0 0 0 41.435 0 12.256 12.256 0 0 0 29.21 12.4a11.72 11.72 0 0 0 .225 2.8A34.736 34.736 0 0 1 4.075 2.1 11.406 11.406 0 0 0 2.49 8.3a12.24 12.24 0 0 0 5.436 10.3 12.607 12.607 0 0 1-5.66-1.6v.3a12.426 12.426 0 0 0 9.96 12.1 11.632 11.632 0 0 1-3.168.5 7.87 7.87 0 0 1-2.265-.2 12.483 12.483 0 0 0 11.548 8.7 23.817 23.817 0 0 1-15.4 5.3A14.578 14.578 0 0 1 0 43.5 35.742 35.742 0 0 0 18.79 49c22.64 0 35.094-19.1 35.094-35.7v-1.6a16.4 16.4 0 0 0 6.113-5.9z" />
-						</svg>
-					</a>
-				</div>
 			</div>
 
 			<div className="composition-source">
 				<a
-					href="/moving-letters/"
+					href="/"
 					className="composition-back-button"
 					onClick={onClickCompositionBackButton}
 				>
@@ -301,23 +302,25 @@ function App() {
 					<div className="footer-text">
 						<h2>Konstantin Pachemski</h2>
 						<p>
-							A frontend developer passionate about
-							crafting delightful user experiences.
+							A frontend developer passionate about crafting delightful user
+							experiences.
+						</p>
+						<p
+							onMouseEnter={(e) => animateButton(e.target, 1.2, 800, 400)}
+							onMouseLeave={(e) => animateButton(e.target, 1.0, 600, 300)}
+						>
+							<a
+								href="/"
+								onClick={(e) => {
+									e.preventDefault();
+									onClickMenuButton(e);
+								}}
+							>
+								Get in touch
+							</a>
 						</p>
 					</div>
 				</div>
-				{/* <div className="collection-footer-box collection-footer-profile">
-					<img
-						src="/avatar-res.jpg"
-						alt="Avatar"
-						width="102"
-						className="collection-profile-image"
-						height={102}
-					/>
-					<h2 className="collection-inline-header collection-inline-header-w-subheader">
-						<a href="https://twitter.com/tobiasahlin">Konstantin Pachemski</a>
-					</h2>
-				</div> */}
 			</div>
 		</div>
 	);

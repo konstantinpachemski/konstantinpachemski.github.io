@@ -565,7 +565,7 @@ const Director = () => {
 		anime
 			.timeline()
 			.add({
-				targets: ".composition-source-container",
+				targets: ".composition-source-container", 
 				scaleX: [0, 1],
 				duration: 900,
 				delay: 500,
@@ -573,10 +573,10 @@ const Director = () => {
 				complete: () => playComposition(c),
 			})
 			.add({
-				targets: ".composition-source-text",
+				targets: [".composition-source-subheader-container", ".composition-source-text"],
 				opacity: [0, 1],
 				translateY: [-50, 0],
-				delay: (el, i) => 50 * i,
+				delay: (el, i) => 10 * i,
 				easing: "easeOutExpo",
 				offset: "-=150",
 			});
@@ -818,11 +818,22 @@ const Director = () => {
 		onlyPlayVisible,
 	]);
 
+	const animateButton = (el, scale, duration, elasticity) => {
+		anime.remove(el);
+		anime({
+		  targets: el,
+		  scale: scale,
+		  duration: duration,
+		  elasticity: elasticity
+		});
+	  }
+
 	return {
 		onClickHeaderTitle,
 		onClickCompositionWrapper,
 		onClickCompositionBackButton,
 		onClickMenuButton,
+		animateButton,
 	};
 };
 
