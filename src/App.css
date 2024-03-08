@@ -742,15 +742,15 @@ p {
 		font-weight: 200;
 	}
 	p {
-		color: #adadba;
+		color: #575766;
 	}
 	a {
-        font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    font-weight: bold;
+		font-size: 11px;
+		text-transform: uppercase;
+		letter-spacing: 0.3em;
+		font-weight: bold;
 		&:hover {
-			color: #566871;
+			color: #3D4851;
 		}
 	}
 }
@@ -1262,7 +1262,7 @@ a {
 } */
 
 .composition-source-header {
-    width: 100%;
+	width: 100%;
 	font-size: 86px;
 	font-weight: 800;
 	padding-top: 100px;
@@ -1298,7 +1298,7 @@ a {
 	padding-bottom: 20px;
 	margin: 0;
 	border-bottom: 1px solid #eee;
-    font-weight: 600;
+	font-weight: 600;
 }
 
 .composition-source-subheader-container {
@@ -1311,16 +1311,16 @@ a {
 	font-size: 0.833rem;
 	color: #adadad;
 	text-transform: uppercase;
-    font-weight: 800;
+	font-weight: 800;
 }
 
 .composition-source-subheader-right {
-    text-align: right;
-    text-transform: capitalize;
+	text-align: right;
+	text-transform: capitalize;
 }
 
 .composition-source-subheader-left {
-    text-align: left;
+	text-align: left;
 	text-transform: capitalize;
 }
 
