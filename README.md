@@ -5,4 +5,10 @@ Demo: https://konstantinpachemski.me/
 
 ![section2-demo](https://github.com/konstantinpachemski/konstantinpachemski.github.io/assets/9078408/19b07d83-6558-4d6f-a705-74e34b4ba2c0)
 
-Publishing through [gh-pages](https://www.npmjs.com/package/gh-pages).
+[React CRA](https://create-react-app.dev/) (TypeScript).
+
+Styling -> [TailWind CSS](https://tailwindcss.com/).
+
+Animations -> [Anime.js](https://animejs.com/).
+
+Publishing on GitHub -> [gh-pages](https://www.npmjs.com/package/gh-pages).
