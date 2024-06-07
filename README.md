@@ -12,3 +12,5 @@ Styling -> [TailWind CSS](https://tailwindcss.com/).
 Animations -> [Anime.js](https://animejs.com/).
 
 Publishing on GitHub -> [gh-pages](https://www.npmjs.com/package/gh-pages).
+
+Demo: https://konstantinpachemski.me/
