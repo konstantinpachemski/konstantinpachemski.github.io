@@ -1,9 +1,8 @@
-Portoflio demo: https://konstantinpachemski.me/
-
-Publishing through [gh-pages](https://www.npmjs.com/package/gh-pages).
-
-![mobile-demo](https://github.com/konstantinpachemski/konstantinpachemski.github.io/assets/9078408/ff7ec33c-03a5-4a38-ae9a-cb16cec8ac1e)
+Demo: https://konstantinpachemski.me/
 
 ![section2-demo](https://github.com/konstantinpachemski/konstantinpachemski.github.io/assets/9078408/19b07d83-6558-4d6f-a705-74e34b4ba2c0)
 
-![perf](https://github.com/konstantinpachemski/konstantinpachemski.github.io/assets/9078408/894464cd-ee1b-419a-910c-bd9966d08639)
+![mobile-demo](https://github.com/konstantinpachemski/konstantinpachemski.github.io/assets/9078408/ff7ec33c-03a5-4a38-ae9a-cb16cec8ac1e) 
+![ezgif-1-35f146e8ef](https://github.com/konstantinpachemski/konstantinpachemski.github.io/assets/9078408/a652d618-7470-4919-ae6d-05ea6e68a621)
+
+Publishing through [gh-pages](https://www.npmjs.com/package/gh-pages).
