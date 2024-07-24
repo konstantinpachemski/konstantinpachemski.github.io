@@ -750,8 +750,18 @@ p {
 		letter-spacing: 0.3em;
 		font-weight: bold;
 		&:hover {
-			color: #3D4851;
+			color: #3d4851;
 		}
+	}
+}
+
+.avatar-section-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 30px;
+	img {
+		border-radius: 50%;
 	}
 }
 
@@ -1293,12 +1303,13 @@ a {
 
 .composition-source-text {
 	font-size: 0.8rem;
-	letter-spacing: 0.05em;
-	color: #adadad;
+	line-height: 1.75em;
+	letter-spacing: 0.02em;
+	color: #03071e;
 	padding-bottom: 20px;
 	margin: 0;
 	border-bottom: 1px solid #eee;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .composition-source-subheader-container {
@@ -1317,11 +1328,13 @@ a {
 .composition-source-subheader-right {
 	text-align: right;
 	text-transform: capitalize;
+	color: #686d76;
 }
 
 .composition-source-subheader-left {
 	text-align: left;
 	text-transform: capitalize;
+	color: #373a40;
 }
 
 .composition-source-code {
